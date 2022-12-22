@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:08:01 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/21 18:11:52 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/22 13:49:42 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,7 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	init_cnct(&mlx, height, weight);
-	if (param == 3)
-		render(&mlx);
+	render(&mlx, av[1]);
 
 	mlx_loop(mlx.mlx);
 }

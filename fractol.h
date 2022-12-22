@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:09:01 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/21 18:00:33 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/22 13:49:18 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ void	ft_putstr(char *str, int *count);
 int	ft_format(va_list ag, char c, int *count);
 int	ft_printf(const char *s, ...);
 
+int	check_param(char *param);
 int	init_cnct(t_mlx *mlx, int height, int weight);
 
-int	render(t_mlx *mlx);
+int	render(t_mlx *mlx, char *param);
 
 #endif
