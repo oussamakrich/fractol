@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:34:53 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/21 19:16:41 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/22 13:25:13 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ double map(double	p, double	f1, double t1, double f2, double t2)
 {
 	double x;
 
-	x = f2 + (p - f1) * (t2 - f2) / (t1 - f1);
+	x = f2 + (p - f1) * ((t2 - f2) / (t1 - f1));
 	return (x);
 }
 
 int	color_at(double a, double b)
 {
 	int	n;
-	int	ab;
-	int	abi;
-	int	ca;
-	int	cb;
+	double	ab;
+	double	abi;
+	double	ca;
+	double	cb;
 	int	color;
 
 	ca = a;
@@ -37,11 +37,11 @@ int	color_at(double a, double b)
 	n = 0;
 	while (n < 100)
 	{
-		ab = a * a - b * b;
+		ab = (a * a) - (b * b);
 		abi = 2 * a * b;
 		a = ab + ca;
 		b = abi + cb;
-		if (a * a + b * b > 16)
+		if ((a * a) + (b * b) > 4)
 			break ;
 		n++;
 	}
@@ -57,10 +57,10 @@ int	render(t_mlx *mlx)
 	int y;
 		
 	x = 0;
-	while (x <= WIDTH)
+	while (x < WIDTH)
 	{
 		y = 0;
-		while (y <= HEIGHT)
+		while (y < HEIGHT)
 		{
 			double xx = map(x, 0, WIDTH, -2, 2);
 			double yy = map(y, 0, HEIGHT, -2, 2);
