@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:08:01 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/22 13:49:42 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/23 21:10:34 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,13 @@ int	init_cnct(t_mlx *mlx, int height, int weight)
 	return (0);
 }
 
+int	ft_do(int key, t_mlx *mlx)
+{
+	if (key == 53)
+		mlx_destroy_window(mlx->mlx, mlx->mlx_win);
+	return(0);
+}
+
 int	main(int ac, char **av)
 {
 	t_mlx	mlx;
@@ -56,11 +63,13 @@ int	main(int ac, char **av)
 	weight = 500;
 	if (ac != 2 || param == 1)
 	{
-		ft_printf("the argument is invalid, you must chose :\n\t1- julia\n\t2- mandelbort");
+		ft_printf("the argument is invalid, you must chose :");
+		ft_printf("\n\t1- julia\n\t2- mandelbort");
 		return (0);
 	}
 	init_cnct(&mlx, height, weight);
 	render(&mlx, av[1]);
+	mlx_hook(mlx.mlx_win,2,0,ft_do, &mlx);
 
 	mlx_loop(mlx.mlx);
 }
