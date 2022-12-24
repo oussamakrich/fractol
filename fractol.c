@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:08:01 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/24 11:59:12 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/24 18:37:45 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,11 @@ int	check_param(char *param)
 }
 
 
-int	init_cnct(t_mlx *mlx, int height, int weight)
+int	init_cnct(t_mlx *mlx)
 {
 	mlx->mlx = mlx_init();
-	mlx->mlx_win = mlx_new_window(mlx->mlx, height, weight, "fractol");
+	mlx->mlx_win = mlx_new_window(mlx->mlx, HEIGHT, WIDTH, "fractol");
+	mlx->mlx_img = mlx_new_image(mlx->mlx, HEIGHT, WIDTH);
 	return (0);
 }
 
@@ -50,19 +51,15 @@ int	main(int ac, char **av)
 {
 	t_mlx	mlx;
 	int		param;
-	int		weight;
-	int		height;
 
 	param = check_param(av[1]);
-	height = 500;
-	weight = 500;
 	if (ac != 2 || param == 1)
 	{
 		ft_printf("the argument is invalid, you must chose :");
 		ft_printf("\n\t1- julia\n\t2- mandelbort");
 		return (0);
 	}
-	init_cnct(&mlx, height, weight);
+	init_cnct(&mlx);
 	render(&mlx, av[1]);
 	mlx_hook(mlx.mlx_win, 2, 0, ft_do, &mlx);
 	mlx_hook(mlx.mlx_win, 17, 0, ft_exit, &mlx);

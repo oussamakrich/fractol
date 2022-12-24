@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:09:01 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/24 11:57:36 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/24 18:37:23 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 typedef struct win{
 	void	*mlx;
 	void	*mlx_win;
+	void	*mlx_img;
 }t_mlx;
 
 void	ft_putchar(unsigned char c, int *count);
@@ -34,7 +35,7 @@ int	ft_format(va_list ag, char c, int *count);
 int	ft_printf(const char *s, ...);
 
 int	check_param(char *param);
-int	init_cnct(t_mlx *mlx, int height, int weight);
+int	init_cnct(t_mlx *mlx);
 
 int	render(t_mlx *mlx, char *param);
 
@@ -42,4 +43,5 @@ int	render(t_mlx *mlx, char *param);
 
 int	ft_exit(t_mlx *mlx);
 int	ft_do(int key, t_mlx *mlx);
+
 #endif
