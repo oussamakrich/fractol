@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:34:53 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/24 17:02:50 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/24 20:06:24 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,10 @@ int	render(t_mlx *mlx, char *param)
 	int	color;
 	double xx;
 	double yy;
+	t_data	data;
 		
 	x = 0;
+	data.addr = mlx_get_data_addr(mlx->mlx_img, &data.bits_per_pixel, &data.line_length, &data.endian);
 	while (x <= WIDTH)
 	{
 		y = 0;
@@ -88,10 +90,11 @@ int	render(t_mlx *mlx, char *param)
 				color = color_at(xx, yy, xx , yy);
 			else if (check_param(param) == 2)
 				color = color_at(xx, yy, -0.7269 , 0.1889);
-			mlx_pixel_put(mlx->mlx, mlx->mlx_win, x, y, color);
+			put_pixel_to_img(data, x, y, color);	
 			y++;
 		}
 		x++;
 	}
+	mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, mlx->mlx_img, 0 , 0);
 	return (1);
 }

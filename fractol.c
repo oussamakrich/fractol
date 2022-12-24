@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:08:01 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/24 18:37:45 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/24 20:07:03 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	check_param(char *param)
 
 int	init_cnct(t_mlx *mlx)
 {
+	//FIX : check NULL
 	mlx->mlx = mlx_init();
 	mlx->mlx_win = mlx_new_window(mlx->mlx, HEIGHT, WIDTH, "fractol");
 	mlx->mlx_img = mlx_new_image(mlx->mlx, HEIGHT, WIDTH);
