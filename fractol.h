@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:09:01 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/22 13:49:18 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/24 11:57:36 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,8 @@ int	init_cnct(t_mlx *mlx, int height, int weight);
 
 int	render(t_mlx *mlx, char *param);
 
+
+
+int	ft_exit(t_mlx *mlx);
+int	ft_do(int key, t_mlx *mlx);
 #endif
