@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 11:56:41 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/24 20:06:00 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/25 19:42:23 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	ft_do(int key, t_mlx *mlx)
 	return(0);
 }
 
-void	put_pixel_to_img(t_data data, int x, int y, int color)
+void	put_pixel_to_img(t_img data, int x, int y, int color)
 {
 	char *dst;
 
-	dst = data.addr + (y * data.line_length + x * (data.bits_per_pixel / 8));
-	*dst = color;
+	dst = data.addr + (y * data.ll + x * (data.bpp / 8));
+	*(int *)dst = color;
 }

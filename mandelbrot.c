@@ -4,9 +4,9 @@
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                               +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:34:53 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/24 20:06:24 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/25 18:52:32 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ double map(double	pnt, double	f1, double t1, double f2, double t2)
 	double	step;
 
 	step = (t2 - f2) / (t1 - f1); 
-	x = f2 + pnt * step;
+	x = f2 + (pnt - f2) * step;
 	return (x);
 }
 
@@ -32,12 +32,13 @@ int	get_color(int itr)
 	
 	if (itr == 100)
 		color = 0x000000;
-	else if (itr < 5)
-		color = 0x3269FF;
+	// else if (itr < 5)
+	// 	color = 0x3269FF;
 	else 
 	{
-		shft = itr / 5;
-		color = 0x3269FF >> shft;
+		// shft = itr / 5;
+		// color = 0x3269FF >> shft;
+		color = 0xffffff;
 	}
 
 	return (color);
@@ -53,18 +54,18 @@ int	color_at(double a, double b, double ca, double cb)
 	n = 0;
 	while (n < 100)
 	{
-		zr = (a * a) - (b * b);
-		zi = 2 * a * b;
-		a = zr + ca;
-		b = zi + cb;
-		if (zr * zr + zi * zi > 4)
+		zr = (a * a) - (b * b) + ca;
+		zi = 2 * a * b + cb;
+		a = zr;
+		b = zi;
+		if (zr * zr + zi * zi > 4) 
 			break ;
 		n++;
 	}
-	// color = 0x000000;
-	// if (n == 100)
-	// 	color = 0xffffff;
-	color = get_color(n);
+	color = 0xffffff;
+	if (n == 100)
+		color = 0x000000;
+	// color = get_color(n);
 	return (color);
 }
 
@@ -75,10 +76,10 @@ int	render(t_mlx *mlx, char *param)
 	int	color;
 	double xx;
 	double yy;
-	t_data	data;
+	t_img	img;
 		
 	x = 0;
-	data.addr = mlx_get_data_addr(mlx->mlx_img, &data.bits_per_pixel, &data.line_length, &data.endian);
+	img.addr = mlx_get_data_addr(mlx->mlx_img, &img.bpp, &img.ll, &img.endian);
 	while (x <= WIDTH)
 	{
 		y = 0;
@@ -90,7 +91,8 @@ int	render(t_mlx *mlx, char *param)
 				color = color_at(xx, yy, xx , yy);
 			else if (check_param(param) == 2)
 				color = color_at(xx, yy, -0.7269 , 0.1889);
-			put_pixel_to_img(data, x, y, color);	
+			put_pixel_to_img(img, x, y, color);	
+			// mlx_pixel_put(mlx->mlx,mlx->mlx_win, x, y, color);
 			y++;
 		}
 		x++;

@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:09:01 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/24 20:06:11 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/25 18:52:48 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ typedef struct win{
 
 typedef struct	s_data {
 	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
+	int		bpp;
+	int		ll;
 	int		endian;
-}				t_data;
+}				t_img;
 
 void	ft_putchar(unsigned char c, int *count);
 void	ft_putstr(char *str, int *count);
@@ -47,7 +47,7 @@ int	init_cnct(t_mlx *mlx);
 int	render(t_mlx *mlx, char *param);
 
 
-void	put_pixel_to_img(t_data data, int x, int y, int color);
+void	put_pixel_to_img(t_img data, int x, int y, int color);
 
 int	ft_exit(t_mlx *mlx);
 int	ft_do(int key, t_mlx *mlx);
