@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 11:56:41 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/26 11:02:29 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/26 21:37:21 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,6 @@ int	ft_exit(t_mlx *mlx)
 	exit(0);
 }
 
-int	ft_do(int key, t_mlx *mlx)
-{
-	if (key == 53)
-		ft_exit(mlx);
-	return(0);
-}
 
 void	put_pixel_to_img(t_img data, int x, int y, int color)
 {
@@ -55,4 +49,14 @@ void	put_pixel_to_img(t_img data, int x, int y, int color)
 
 	dst = data.addr + (y * data.ll + x * (data.bpp / 8));
 	*(int *)dst = color;
+}
+
+void	zoom_in()
+{
+
+}
+
+void	zoom_out()
+{
+
 }

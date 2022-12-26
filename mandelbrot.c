@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                               +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:34:53 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/26 12:47:11 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/26 20:20:45 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	get_color(int itr)
 	else 
 	{
 		shft = itr / 5;
-		color = 0xA300FF >> shft | 0xADEFD3<< shft;
+		color = 0xA300FF >> shft | 0xADEFD3 << shft;
 
 	}
 
@@ -98,7 +98,7 @@ int	render_mandel(t_mlx *mlx)
 }
 
 
-int	render_julia(t_mlx *mlx, double xj, double yj)
+int	render_julia(t_mlx *mlx)
 {
 	int x;
 	int y;
@@ -116,7 +116,7 @@ int	render_julia(t_mlx *mlx, double xj, double yj)
 		{
 			xx = map(x, 0, WIDTH, -2, 2);
 			yy = map(y, 0, HEIGHT, -2, 2);
-			color = color_at(xx, yy, xj , yj);
+			color = color_at(xx, yy, mlx->xj , mlx->yj);
 			put_pixel_to_img(img, x, y, color);	
 			y++;
 		}
