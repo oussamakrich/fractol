@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:09:01 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/25 18:52:48 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/26 12:45:57 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ int	ft_printf(const char *s, ...);
 int	check_param(char *param);
 int	init_cnct(t_mlx *mlx);
 
-int	render(t_mlx *mlx, char *param);
+int	render_mandel(t_mlx *mlx);
+int	render_julia(t_mlx *mlx, double xj, double yj);
+
+double map(double	pnt, double	f1, double t1, double f2, double t2);
 
 
 void	put_pixel_to_img(t_img data, int x, int y, int color);
