@@ -6,11 +6,12 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 11:56:41 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/26 21:37:21 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/27 19:21:33 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include <stdio.h>
 
 
 int	ft_strcmp(char *s1, char *s2)
@@ -36,27 +37,29 @@ int	check_param(char *param)
 	return (1);
 }
 
-int	ft_exit(t_mlx *mlx)
-{
-	mlx_destroy_window(mlx->mlx, mlx->mlx_win);
-	exit(0);
-}
+
 
 
 void	put_pixel_to_img(t_img data, int x, int y, int color)
 {
-	char *dst;
+	char	*dst;
+	char	*prv;
 
+	prv = dst;
 	dst = data.addr + (y * data.ll + x * (data.bpp / 8));
 	*(int *)dst = color;
 }
 
-void	zoom_in()
+void	zoom_in(t_mlx *mlx)
 {
-
+	 // printf("%f\n", mlx->zome_in);
+	mlx->zome_in =  mlx->zome_in ;  	
+	render(mlx);
 }
 
-void	zoom_out()
-{
-
-}
+// void	zoom_out(t_mlx *mlx)
+// {
+// 	// printf("out - %f\n", mlx->zome_in);
+// 	mlx->zome_in = mlx->zome_in ;
+// 	//render(mlx);
+// }
