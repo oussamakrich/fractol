@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:09:01 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/27 19:07:51 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/27 21:18:26 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct win{
 	int		move;
 	double	zome_in;
 	double	zoom_out;
-	t_img	img;
+	t_img	*img;
 }t_mlx;
 
 
@@ -65,7 +65,7 @@ double map(double	pnt, double	f1, double t1, double f2, double t2);
 // window && img :
 
 int	init_cnct(t_mlx *mlx);
-void	put_pixel_to_img(t_img data, int x, int y, int color);
+void	put_pixel_to_img(t_img *data, int x, int y, int color);
 
 // eventes :
 

@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 11:54:20 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/27 19:05:07 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/27 21:34:13 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	ft_do(int key, t_mlx *mlx)
 		mlx->mv_y += 0.1;
 	else if (key == 125)
 		mlx->mv_y -= 0.1;
+	else if (key == 78)
+		mlx->zome_in += 0.3;
 	render(mlx);
 	return(0);
 }

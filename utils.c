@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 11:56:41 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/27 19:21:33 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/27 21:23:02 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,18 @@ int	check_param(char *param)
 
 
 
-void	put_pixel_to_img(t_img data, int x, int y, int color)
+void	put_pixel_to_img(t_img *data, int x, int y, int color)
 {
 	char	*dst;
 	char	*prv;
 
 	prv = dst;
-	dst = data.addr + (y * data.ll + x * (data.bpp / 8));
+	dst = data->addr + (y * data->ll + x * (data->bpp / 8));
 	*(int *)dst = color;
 }
 
 void	zoom_in(t_mlx *mlx)
 {
-	 // printf("%f\n", mlx->zome_in);
-	mlx->zome_in =  mlx->zome_in ;  	
 	render(mlx);
 }
 

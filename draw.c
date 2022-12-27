@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                               +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:34:53 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/27 19:14:14 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/27 21:36:40 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ int	render(t_mlx *mlx)
 		y = 0;
 		while (y <= HEIGHT)
 		{
-			xx = map(x , 0, WIDTH , -2 + mlx->mv_x  ,2 + mlx->mv_x );
-			yy = map(y , 0, HEIGHT , -2 + mlx->mv_y, 2 + mlx->mv_y  );
+			xx = map(x , 0, WIDTH * mlx->zome_in, -2 + mlx->mv_x , 2 + mlx->mv_x  );
+			yy = map(y , 0, HEIGHT * mlx->zome_in, -2 + mlx->mv_y , 2 + mlx->mv_y  );
 			if (mlx->param == 'm')
 				color = color_at(xx, yy, xx , yy);
 			else                   
