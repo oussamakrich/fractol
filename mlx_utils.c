@@ -6,11 +6,12 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 19:18:59 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/28 19:22:07 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/28 21:27:05 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include <stdlib.h>
 
 int	init_cnct(t_mlx *mlx)
 {
@@ -26,7 +27,6 @@ void	destroy_cnct(t_mlx *mlx)
 {
 	mlx_destroy_image(mlx->mlx, mlx->mlx_img);
 	mlx_destroy_window(mlx->mlx, mlx->mlx_win);
-	free(mlx->mlx);
 	free(mlx->img);
 	free(mlx);
 }

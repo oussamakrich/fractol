@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 11:54:20 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/28 19:24:04 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/28 21:29:45 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	ft_do(int key, t_mlx *mlx)
 int	ft_exit(t_mlx *mlx)
 {
 	destroy_cnct(mlx);	
-	// atexit(my_ex);
 	exit(0);
 }
 

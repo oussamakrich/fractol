@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:08:01 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/28 19:19:50 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/28 21:29:32 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,4 @@ int	main(int ac, char **av)
 	mlx_hook(mlx->mlx_win, 17, 0, ft_exit, mlx);
 
 	mlx_loop(mlx->mlx);
-	// free(mlx);
-	// free(mlx->img);
-	// 	
-	// atexit(my_ex);
 }
