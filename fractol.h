@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:09:01 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/28 19:21:44 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/29 19:56:52 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ typedef struct win{
 	long double	zome;
 	ssize_t max_itr;
 	int		rng;
+	double	i_min;
+	double  i_max;
 	t_img	*img;
 }t_mlx;
 

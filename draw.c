@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                               +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:34:53 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/28 21:38:09 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/29 19:59:06 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,23 +59,6 @@ int	get_color(ssize_t itr, ssize_t max, int rng)
 	return (color);
 }
 
-// int	get_color(int itr)
-// {
-// 	int color;
-// 	int shft;
-// 	
-// 	if (itr == 100)
-// 		color = 0x000000;
-// 	else if (itr < 2)
-// 		color = 0xADEFD3;
-// 	else 
-// 	{
-// 		shft = itr / 5;
-// 		color = 0xA300FF >> shft | 0xADEFD3 << shft;
-// 	}
-//
-// 	return (color);
-// }
 
 int	color_at(double a, double b, t_mlx *mlx)
 {
@@ -115,8 +98,8 @@ int	render(t_mlx *mlx)
 		y = -1;
 		while (++y < HEIGHT)
 		{
-			xx = map(x , WIDTH * mlx->zome, -2 + mlx->mv_x , 2 + mlx->mv_x  );
-			yy = map(y , HEIGHT * mlx->zome, -2 + mlx->mv_y , 2 + mlx->mv_y  );
+			xx = map(x , WIDTH , mlx->i_min + mlx->mv_x , mlx->i_max + mlx->mv_x);
+			yy = map(y , HEIGHT, mlx->i_min + mlx->mv_y , mlx->i_max + mlx->mv_y);
 			if (mlx->param == 'm' || mlx->param == 'b')
 			{
 				mlx->cr = xx;

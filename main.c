@@ -6,11 +6,12 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:08:01 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/28 22:11:01 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/29 20:07:01 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+//FIX: don't push
 #include "minilibx_macos/mlx.h"
 #include <stdlib.h>
 
@@ -19,14 +20,14 @@ int	mouse_hook(int key, int x, int y, t_mlx *mlx)
 {
 	if (key == 5)
 	{
-		mlx->zome += 0.3;
-		mlx->max_itr += 1;
+		mlx->i_max *= 0.5;
+		mlx->i_min *= 0.5;
 		render(mlx);
 	}
 	else if (key == 4)
-	{
-		mlx->zome -= 0.3;
-		mlx->max_itr += 1;
+	{	
+		mlx->i_max /= 0.5;
+		mlx->i_min /= 0.5;
 		render(mlx);
 	}
 	return (0);
@@ -39,8 +40,10 @@ void	init_value(t_mlx *mlx, char **av)
 	mlx->mv_x = 0;
 	mlx->mv_y = 0;
 	mlx->zome = 1;
-	mlx->max_itr = 80;
+	mlx->max_itr = 100;
 	mlx->rng = 0;
+	mlx->i_min = -2;
+	mlx->i_max = 2;
 	if (mlx->param == 'j')
 	{
 		mlx->cr = map(ft_atoi(av[2]), 100, -2 + mlx->mv_x, 2 + mlx->mv_x);
@@ -70,5 +73,6 @@ int	main(int ac, char **av)
 	mlx_mouse_hook(mlx->mlx_win, mouse_hook, mlx);
 	if (mlx->param == 'j')
 		mlx_hook(mlx->mlx_win,6,0,mouse_cord, mlx);
+	// atexit(my_ex);
 	mlx_loop(mlx->mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 11:54:20 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/28 22:07:16 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/29 20:05:36 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,29 @@ int	ft_do(int key, t_mlx *mlx)
 	else if (key == 49)
 		mlx->move = !mlx->move;
 	else if (key == 124)
+	{
+		if (mlx->mv_x >= 5)
+			mlx->mv_x = 0;
 		mlx->mv_x += 0.1;
+	}
 	else if (key == 123)
+	{
+		if (mlx->mv_x >= 5)
+			mlx->mv_x = 0;
 		mlx->mv_x -= 0.1;
+	}
 	else if (key == 126)
+	{
+		if (mlx->mv_y >= 5)
+			mlx->mv_y = 0;
 		mlx->mv_y += 0.1;
+	}
 	else if (key == 125)
+	{
+		if (mlx->mv_y >= 5)
+			mlx->mv_y = 0;
 		mlx->mv_y -= 0.1;
+	}
 	else if (key == 1)
 	{
 		mlx->rng += 1;
