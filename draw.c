@@ -6,13 +6,11 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                               +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:34:53 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/28 19:25:37 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/28 21:38:09 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdlib.h>
-#include <sys/_types/_ssize_t.h>
 
 double map(int	pnt, int max, double r1, double r2)
 {
@@ -84,7 +82,7 @@ int	color_at(double a, double b, t_mlx *mlx)
 	ssize_t n;
 	double	zr;
 	double	zi;
-	int	color;
+	int		color;
 
 	n = 0;
 	while (n < mlx->max_itr)
@@ -105,17 +103,17 @@ int	color_at(double a, double b, t_mlx *mlx)
 
 int	render(t_mlx *mlx)
 {
-	int x;
-	int y;
-	int	color;
-	double xx;
-	double yy;
+	int		x;
+	int		y;
+	int		color;
+	double	xx;
+	double	yy;
 		
-	x = 0;
-	while (x < WIDTH)
+	x = -1;
+	while (++x < WIDTH)
 	{
-		y = 0;
-		while (y < HEIGHT)
+		y = -1;
+		while (++y < HEIGHT)
 		{
 			xx = map(x , WIDTH * mlx->zome, -2 + mlx->mv_x , 2 + mlx->mv_x  );
 			yy = map(y , HEIGHT * mlx->zome, -2 + mlx->mv_y , 2 + mlx->mv_y  );
@@ -123,14 +121,10 @@ int	render(t_mlx *mlx)
 			{
 				mlx->cr = xx;
 				mlx->ci = yy;
-				color = color_at(xx, yy, mlx);
 			}
-			else                   
-				color = color_at(xx, yy, mlx);
+			color = color_at(xx, yy, mlx);
 			put_pixel_to_img(mlx->img, x, y, color);	
-			y++;
 		}
-		x++;
 	}
 	mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, mlx->mlx_img, 0 , 0);
 	return (1);
