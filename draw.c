@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                               +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:34:53 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/29 19:59:06 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/30 19:13:31 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ double map(int	pnt, int max, double r1, double r2)
 	double	step;
 
 	step = (r2 - r1) / max; 
-	x = r1 + pnt * step;
+	x = r1 + pnt * fabs(step);
+	// step = (double)pnt / (double)max;
+	// x = r1 + step * fabs(r2 - r1);
+
 	return (x);
 }
 
@@ -98,8 +101,8 @@ int	render(t_mlx *mlx)
 		y = -1;
 		while (++y < HEIGHT)
 		{
-			xx = map(x , WIDTH , mlx->i_min + mlx->mv_x , mlx->i_max + mlx->mv_x);
-			yy = map(y , HEIGHT, mlx->i_min + mlx->mv_y , mlx->i_max + mlx->mv_y);
+			xx = map(x , WIDTH , mlx->r_min  , mlx->r_max );
+			yy = map(y , HEIGHT, mlx->i_min  , mlx->i_max );
 			if (mlx->param == 'm' || mlx->param == 'b')
 			{
 				mlx->cr = xx;

@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 11:56:41 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/28 19:19:22 by okrich           ###   ########.fr       */
+/*   Updated: 2022/12/30 19:57:28 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,3 @@ void	print_err(void)
 	ft_printf("the argument is invalid, you must chose :");
 	ft_printf("\n\t1- julia\n\t2- manelbort\n\t3- burning ship");
 }
-
-
-
