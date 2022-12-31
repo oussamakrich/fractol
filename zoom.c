@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   zoom.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 11:08:01 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/31 22:12:20 by okrich           ###   ########.fr       */
+/*   Created: 2022/12/31 13:14:37 by okrich            #+#    #+#             */
+/*   Updated: 2022/12/31 22:48:53 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	main(int ac, char **av)
+void	zoom_in(t_mlx *mlx, double xx, double yy)
 {
-	t_mlx	mlx;
+	mlx->r_max += xx;
+	mlx->r_min += xx;
+	mlx->i_max += yy;
+	mlx->i_min += yy;
+	mlx->r_max *= 0.5;
+	mlx->r_min *= 0.5;
+	mlx->i_max *= 0.5;
+	mlx->i_min *= 0.5;
+}
 
-	check_param(av[1], &mlx);
-	if (ac == 1 || mlx.param == 'n')
-		return (print_err(), 0);
-	init_value(&mlx, ac, av);
-	init_cnct(&mlx);
-	render(&mlx);
-	mlx_hook(mlx.mlx_win, ON_KEYPRESS, 0, ft_do, &mlx);
-	mlx_hook(mlx.mlx_win, ON_DESTROY, 0, ft_exit, &mlx);
-	mlx_hook(mlx.mlx_win, ON_MOUSEMOVE, 0, mouse_cord, &mlx);
-	mlx_mouse_hook(mlx.mlx_win, mouse_hook, &mlx);
-	mlx_loop(mlx.mlx);
+void	zoom_out(t_mlx *mlx, double xx, double yy)
+{
+	mlx->r_max /= 0.5;
+	mlx->r_min /= 0.5;
+	mlx->i_max /= 0.5;
+	mlx->i_min /= 0.5;
+	mlx->r_max -= xx;
+	mlx->r_min -= xx;
+	mlx->i_max -= yy;
+	mlx->i_min -= yy;
 }
