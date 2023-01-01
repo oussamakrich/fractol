@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 11:56:41 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/31 22:14:57 by okrich           ###   ########.fr       */
+/*   Updated: 2023/01/01 12:27:02 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	init_value(t_mlx *mlx, int ac, char **av)
 		print_err();
 	if (mlx->param == 'j' && (is_not_digit(av[2]) || is_not_digit(av[3])))
 		print_err();
-	else if (mlx->param == 'j' )
+	else if (mlx->param == 'j')
 	{
 		par1 = ft_atoi(av[2]);
 		par2 = ft_atoi(av[3]);
