@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 11:54:20 by okrich            #+#    #+#             */
-/*   Updated: 2022/12/31 22:36:34 by okrich           ###   ########.fr       */
+/*   Updated: 2023/01/01 13:00:00 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	ft_exit(t_mlx *mlx)
 {
 	destroy_cnct(mlx);
 	exit(0);
+	return (0);
 }
 
 int	mouse_cord(int x, int y, t_mlx *mlx)
