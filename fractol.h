@@ -6,7 +6,7 @@
 /*   By: okrich <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:09:01 by okrich            #+#    #+#             */
-/*   Updated: 2023/01/01 11:14:00 by okrich           ###   ########.fr       */
+/*   Updated: 2023/01/02 15:57:10 by okrich           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ typedef struct win{
 	double	i_max;
 	double	r_min;
 	double	r_max;
-	int		i;
 	t_img	img;
 }t_mlx;
 
